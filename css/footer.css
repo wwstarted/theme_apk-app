@@ -1,0 +1,420 @@
+/* ============================================================
+   VOYA — footer.css
+   Clone: happymod.cx footer
+   Light gray bg | Green accent | 4-col grid | Dark bottom bar
+   ============================================================ */
+
+/* ── Design tokens ───────────────────────────────────────── */
+:root {
+  --vy-ft-bg: #e8e8e8; /* light gray main bg ~rgba(217,217,217,0.5) on white */
+  --vy-ft-bg-bot: #555555; /* dark gray copyright bar */
+  --vy-ft-text: #444444; /* body text */
+  --vy-ft-heading: #0a8f0f; /* green col titles */
+  --vy-ft-link: #4e7891; /* list link color */
+  --vy-ft-link-hover: #0a8f0f; /* list link hover */
+  --vy-ft-copy-text: #eeeeee; /* copyright bar text */
+  --vy-ft-accent: #0a8f0f; /* green accent */
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+.vy-footer {
+  width: 100%;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+}
+
+/* ── Shared container ── */
+.vy-footer__container {
+  max-width: var(--vy-container-w, 1230px);
+  margin: 0 auto;
+  padding: 0 var(--vy-page-pad, 20px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ============================================================
+   FOOTER MAIN
+   ============================================================ */
+
+.vy-footer__main {
+  background: var(--vy-ft-bg);
+  padding: 36px 0 30px;
+}
+
+/* ── 4-column grid ── */
+.vy-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 32px;
+  align-items: start;
+}
+
+/* ============================================================
+   COL 1 — Logo
+   ============================================================ */
+
+.vy-footer__col--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vy-footer__logo-link {
+  display: inline-block;
+  text-decoration: none;
+  width: 70%; /* matches site mẫu: 70% */
+  max-width: 160px;
+}
+
+.vy-footer__logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.vy-footer__logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vy-ft-accent);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   COL 2 — Bio + Social
+   ============================================================ */
+
+.vy-footer__bio {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--vy-ft-text);
+  margin-bottom: 12px;
+}
+
+.vy-footer__bio p {
+  margin: 0 0 8px;
+}
+
+.vy-footer__bio a {
+  color: var(--vy-ft-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.vy-footer__bio a:hover {
+  text-decoration: underline;
+}
+
+.vy-footer__contact {
+  font-size: 14px;
+  color: var(--vy-ft-text);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.vy-footer__contact strong {
+  color: #222;
+}
+
+/* ── Social icons ── */
+.vy-footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vy-footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.vy-footer__social:hover {
+  transform: translateY(-3px);
+  opacity: 0.88;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Social brand colors */
+.vy-footer__social--fb {
+  background: #1877f2;
+}
+.vy-footer__social--tw {
+  background: #000000;
+}
+.vy-footer__social--pt {
+  background: #e60023;
+}
+.vy-footer__social--li {
+  background: #0077b5;
+}
+.vy-footer__social--tg {
+  background: #229ed9;
+}
+.vy-footer__social--yt {
+  background: #ff0000;
+}
+.vy-footer__social--ig {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+/* ============================================================
+   COL 3 & 4 — Link lists
+   ============================================================ */
+
+.vy-footer__col-title {
+  font-family: var(--font-body, sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vy-ft-heading);
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+.vy-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vy-footer__links li {
+  padding: 5px 0;
+}
+
+.vy-footer__links li::before {
+  content: "•";
+  color: var(--vy-ft-accent);
+  font-weight: 700;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.vy-footer__links a {
+  font-size: 14px;
+  color: var(--vy-ft-link);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.18s ease;
+}
+
+.vy-footer__links a:hover {
+  color: var(--vy-ft-link-hover);
+}
+
+/* ============================================================
+   FOOTER BOTTOM — Copyright bar
+   ============================================================ */
+
+.vy-footer__bottom {
+  background: var(--vy-ft-bg-bot);
+  padding: 14px 0;
+  text-align: center;
+}
+
+.vy-footer__copyright {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--vy-ft-copy-text);
+  line-height: 1.4;
+}
+
+.vy-footer__copyright a {
+  color: var(--vy-ft-copy-text);
+  text-decoration: none;
+}
+
+.vy-footer__copyright a:hover {
+  text-decoration: underline;
+}
+
+.vy-footer__copyright strong {
+  font-weight: 600;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+
+#vy-back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 28px;
+  width: 40px;
+  height: 40px;
+  background: var(--vy-ft-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(10, 143, 15, 0.35);
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 0.24s ease,
+    visibility 0s linear 0.24s,
+    transform 0.24s ease,
+    background 0.18s ease;
+}
+
+#vy-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 0.24s ease,
+    visibility 0s linear 0s,
+    transform 0.24s ease,
+    background 0.18s ease;
+}
+
+#vy-back-to-top:hover {
+  background: #078a0c;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet ≤ 991px
+   ============================================================ */
+
+@media (max-width: 991px) {
+  .vy-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 24px;
+  }
+
+  /* Logo col spans full width on tablet to center it */
+  .vy-footer__col--logo {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .vy-footer__logo-link {
+    width: auto;
+    max-width: 120px;
+  }
+
+  #vy-back-to-top {
+    bottom: 22px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile ≤ 767px
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .vy-footer__main {
+    padding: 28px 0 24px;
+  }
+
+  .vy-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+
+  /* Logo: full width, center */
+  .vy-footer__col--logo {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  /* Bio: full width */
+  .vy-footer__col--bio {
+    grid-column: 1 / -1;
+  }
+
+  .vy-footer__socials {
+    justify-content: flex-start;
+  }
+
+  .vy-footer__social {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .vy-footer__copyright {
+    font-size: 13px;
+  }
+
+  #vy-back-to-top {
+    bottom: 18px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Small mobile ≤ 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .vy-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .vy-footer__col--logo {
+    justify-content: center;
+  }
+
+  .vy-footer__logo-link {
+    max-width: 100px;
+  }
+
+  .vy-footer__col-title {
+    font-size: 15px;
+  }
+
+  .vy-footer__links a {
+    font-size: 13px;
+  }
+
+  .vy-footer__bio {
+    font-size: 13px;
+  }
+
+  .vy-footer__copyright {
+    font-size: 12px;
+  }
+
+  .vy-footer__social {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}

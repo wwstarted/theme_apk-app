@@ -1,0 +1,533 @@
+/* ============================================================
+   HEADER - Responsive Design (Desktop / Tablet / Mobile)
+============================================================ */
+
+:root {
+  --vy-container-w: 1230px;
+  --vy-header-h: 75px;
+  --vy-accent: #5eb51c; /* Màu xanh HappyMod */
+  --vy-text: #333;
+  --vy-border: #eeeeee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Global Flex Classes */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  align-items: center;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-left {
+  justify-content: flex-start;
+  order: 1;
+}
+
+.flex-right {
+  justify-content: flex-end;
+  order: 3;
+}
+
+/* Container */
+.container {
+  max-width: var(--vy-container-w);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ============================================================
+   HEADER STRUCTURE
+============================================================ */
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid var(--vy-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-wrapper {
+  position: relative;
+}
+
+.header-main {
+  position: relative;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--vy-header-h);
+  padding: 0 20px;
+  gap: 20px;
+  max-width: var(--vy-container-w);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   LOGO
+============================================================ */
+
+.logo {
+  flex-shrink: 0;
+  padding: 10px 0;
+  order: 1;
+}
+
+.logo a,
+.logo img {
+  display: block;
+  max-height: 50px;
+  width: auto;
+}
+
+.custom-logo {
+  max-height: 50px;
+  width: auto;
+}
+
+/* Desktop Search Center */
+.search-center {
+  order: 2;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-uppercase {
+  text-transform: uppercase;
+}
+
+.nav > li {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  height: var(--vy-header-h);
+  color: var(--vy-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav > li > a:hover,
+.nav > li > a.active {
+  color: var(--vy-accent);
+  border-bottom-color: var(--vy-accent);
+}
+
+.nav-icon a {
+  padding: 10px 15px !important;
+  height: auto;
+  border: none !important;
+}
+
+.nav-icon i {
+  font-size: 20px;
+  color: var(--vy-text);
+  transition: color 0.3s;
+}
+
+.nav-icon a:hover i {
+  color: var(--vy-accent);
+}
+
+/* ============================================================
+   SEARCH FORM (Desktop)
+============================================================ */
+
+.header-search-form {
+  flex-grow: 1;
+  max-width: 500px;
+  padding: 0 20px;
+  order: 2;
+}
+
+.searchform {
+  position: relative;
+  width: 100%;
+}
+
+.searchform-wrapper {
+  position: relative;
+}
+
+.search-field {
+  width: 100%;
+  padding: 10px 45px 10px 20px;
+  border: 2px solid #f2f2f2;
+  border-radius: 25px;
+  background: #f8f8f8;
+  outline: none;
+  transition: all 0.3s;
+  font-size: 14px;
+  color: var(--vy-text);
+}
+
+.search-field:focus {
+  border-color: var(--vy-accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(94, 181, 28, 0.1);
+}
+
+.search-field::placeholder {
+  color: #999;
+}
+
+.ux-search-submit {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 16px;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ux-search-submit:hover {
+  color: var(--vy-accent);
+}
+
+.ux-search-submit i {
+  display: block;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.form-flat input {
+  border-radius: 25px;
+}
+
+.relative {
+  position: relative;
+}
+
+.html {
+  display: block;
+}
+
+.is-normal {
+  /* normal form style */
+}
+
+/* ============================================================
+   MOBILE MENU SIDEBAR (Drawer)
+============================================================ */
+
+.mfp-content {
+  display: none;
+}
+
+.mobile-menu-open .mfp-content {
+  display: block;
+}
+
+.vy-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+}
+
+.mobile-menu-open .vy-sidebar-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  z-index: 2000;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-open .mobile-sidebar {
+  left: 0;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-menu {
+  padding: 20px;
+}
+
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.nav-sidebar > li {
+  display: block;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-sidebar > li > a {
+  display: block;
+  padding: 12px 15px;
+  color: var(--vy-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition:
+    background 0.3s,
+    color 0.3s;
+  text-transform: uppercase;
+}
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a.active {
+  background: #f5f5f5;
+  color: var(--vy-accent);
+}
+
+.nav-vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ============================================================
+   TOP DIVIDER
+============================================================ */
+
+.top-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #eee, transparent);
+  margin: 0;
+}
+
+.header-bg-container {
+  position: relative;
+  pointer-events: none;
+}
+
+.header-bg-image,
+.header-bg-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+
+/* Show/Hide Classes */
+.show-for-medium {
+  display: none;
+}
+
+.hide-for-medium {
+  display: flex;
+}
+
+/* Tablet & Mobile (768px and below) */
+@media (max-width: 768px) {
+  :root {
+    --vy-header-h: 65px;
+  }
+
+  .hide-for-medium {
+    display: none !important;
+  }
+
+  .show-for-medium {
+    display: flex !important;
+  }
+
+  .header-inner {
+    height: 65px;
+    padding: 0 15px;
+    gap: 10px;
+    justify-content: space-between !important;
+  }
+
+  .logo {
+    flex-shrink: 0;
+    order: 2;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .flex-left {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .flex-right {
+    order: 3;
+    flex: 0 0 auto;
+  }
+
+  .search-center {
+    order: 2;
+  }
+
+  /* Mobile Search Dropdown Position */
+  .header-search-dropdown .nav-dropdown {
+    right: -15px;
+    width: 280px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .nav-icon a {
+    padding: 8px 12px !important;
+  }
+
+  .mobile-nav {
+    gap: 5px;
+  }
+
+  .mobile-sidebar {
+    width: 280px;
+    left: -280px;
+  }
+
+  .mobile-menu-open .mobile-sidebar {
+    left: 0;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .header-inner {
+    gap: 5px;
+    padding: 0 10px;
+  }
+
+  .logo {
+    max-width: 120px;
+  }
+
+  .logo img {
+    max-height: 40px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .nav-icon a {
+    padding: 6px 10px !important;
+  }
+
+  .nav-icon i {
+    font-size: 18px;
+  }
+
+  .mobile-sidebar {
+    width: 250px;
+    left: -250px;
+  }
+
+  .sidebar-menu {
+    padding: 15px;
+  }
+
+  .header-inner {
+    --vy-header-h: 60px;
+    height: 60px;
+  }
+}
+
+/* Print */
+@media print {
+  .header {
+    position: static;
+  }
+}

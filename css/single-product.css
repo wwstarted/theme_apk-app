@@ -1,0 +1,923 @@
+/* ============================================================
+   VOYA — single-product.css
+   Single Product Page — self-contained (no archive.css dependency)
+   ============================================================ */
+
+/* ============================================================
+   PAGE LAYOUT
+   ============================================================ */
+
+.vy-single-page {
+  padding: 30px 0 50px;
+  background: #f8f8f8;
+  min-height: 60vh;
+}
+
+.vy-single-page .container {
+  max-width: var(--vy-container-w, 1230px);
+  padding-left: var(--vy-page-pad, 20px);
+  padding-right: var(--vy-page-pad, 20px);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.vy-single-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ── Column grid: Desktop ── */
+@media (min-width: 769px) {
+  .vy-single-main-col {
+    flex: 0 0 75%;
+    max-width: 75%;
+    width: 75%;
+    padding-right: 8px;
+    box-sizing: border-box;
+  }
+
+  .vy-single-sidebar-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    width: 25%;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+}
+
+/* ============================================================
+   POST HEADER
+   ============================================================ */
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+  margin-bottom: 20px;
+}
+
+.post-thumbnail {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-title {
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.post-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 13px;
+  color: #666;
+}
+
+.post-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-meta i {
+  color: #58c21c;
+  font-size: 12px;
+}
+
+.post-meta a {
+  color: #58c21c;
+  text-decoration: none;
+}
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   INFO TABLE
+   ============================================================ */
+
+.product-info-table-wrap {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.post-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.post-info-table td {
+  border: 1px solid #e8e8e8;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #444;
+  background: #fff;
+  text-align: right;
+}
+
+.post-info-table tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+.post-info-table td.label {
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+  width: 42%;
+}
+
+.post-info-table td.title {
+  background: #58c21c;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 11px;
+  border: none;
+}
+
+.post-info-table .pkg-name {
+  word-break: break-all;
+}
+
+.post-info-table .apk-cat a {
+  color: #58c21c;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.inline-star {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* ============================================================
+   POST CONTENT
+   ============================================================ */
+
+.post-content-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.post-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.post-content h2 {
+  font-family: var(--font-body, sans-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+  margin: 20px 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #58c21c;
+}
+
+.post-content h3 {
+  font-family: var(--font-body, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin: 16px 0 8px;
+}
+
+.post-content p {
+  margin: 0 0 12px;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.post-content li {
+  margin-bottom: 5px;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.post-content a {
+  color: #58c21c;
+}
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.post-content .wp-caption {
+  max-width: 100%;
+  margin: 14px auto;
+  text-align: center;
+}
+.post-content .wp-caption-text {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+}
+
+/* ============================================================
+   DOWNLOAD CTA
+   ============================================================ */
+
+.single-download-wrap {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.single-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #58c21c;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-body, sans-serif);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 14px rgba(88, 194, 28, 0.35);
+  transition:
+    background 0.22s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.single-download-btn:hover {
+  background: #4aaa14;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 194, 28, 0.45);
+  text-decoration: none;
+}
+
+.single-download-btn i {
+  font-size: 16px;
+}
+
+/* ============================================================
+   AUTHOR CARD
+   ============================================================ */
+
+.author-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+  margin-bottom: 24px;
+}
+
+.author-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+/* Avatar — ensure get_avatar img is sized correctly */
+.author-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.author-avatar img {
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.author-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.author-name {
+  font-family: var(--font-body, sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.author-name a {
+  color: inherit;
+  text-decoration: none;
+}
+.author-name a:hover {
+  color: #58c21c;
+}
+
+.author-social {
+  display: flex;
+  gap: 10px;
+}
+
+.author-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  color: #555;
+  font-size: 13px;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.author-social a:hover {
+  background: #58c21c;
+  color: #fff;
+}
+
+.author-description {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #666;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ============================================================
+   COMMENTS
+   ============================================================ */
+
+.single-comments-wrap {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   SLIDER SECTION
+   ============================================================ */
+
+.single-slider-section {
+  margin-bottom: 28px;
+}
+
+.single-slider-title {
+  font-family: var(--font-body, sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 12px;
+  padding-left: 10px;
+  border-left: 4px solid #58c21c;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ── Slider wrapper: clips overflow ── */
+.vy-apk-slider {
+  position: relative;
+}
+
+.vy-apk-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ── Track: flex row of columns ── */
+.vy-apk-slider__track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* ── Each column: 2 items stacked vertically ── */
+.vy-apk-slider__col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* width set by JS */
+}
+
+/* ── Slide item ── */
+.apk-slide-item {
+  /* Reset hover lift from woocommerce-products.css */
+  transform: none !important;
+  transition: box-shadow 0.2s ease !important;
+  flex-shrink: 0;
+
+  /* Card height = thumbnail height — no taller */
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  overflow: hidden;
+}
+
+.apk-slide-item:hover {
+  transform: none !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Thumbnail: square, fixed, defines card height */
+.apk-slide-item .apk-thumbnail {
+  width: 90px !important;
+  min-width: 90px !important;
+  height: 90px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Info: fills remaining space, vertically centered */
+.apk-slide-item .apk-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px 10px !important;
+  gap: 2px;
+  overflow: hidden;
+}
+
+/* Title: 1 line only */
+.apk-slide-item .apk-info h3 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin: 0 0 2px !important;
+  line-height: 1.3;
+  /* Single line, truncate */
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+}
+
+/* Category: 1 line only */
+.apk-slide-item .apk-category {
+  font-size: 11px !important;
+  margin: 0 0 4px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+  flex-wrap: nowrap !important;
+}
+
+/* box-bottom: stars + download btn */
+.apk-slide-item .box-bottom {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  gap: 6px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Stars: smaller in slider */
+.apk-slide-item .rating img {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* Download btn: compact */
+.apk-slide-item .apk-download-btn {
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Prev/Next arrows ── */
+.vy-apk-slider__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: #555;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  outline: none;
+  padding: 0;
+}
+
+.vy-apk-slider__btn--prev {
+  left: 2px;
+}
+.vy-apk-slider__btn--next {
+  right: 2px;
+}
+
+.vy-apk-slider__btn:hover {
+  background: #58c21c;
+  color: #fff;
+  border-color: #58c21c;
+}
+
+.vy-apk-slider__btn:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.vy-apk-slider__btn:focus-visible {
+  outline: 2px solid #58c21c;
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   SIDEBAR
+   All sidebar styles here (no archive.css dependency)
+   ============================================================ */
+
+.sidebar-apk {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px 14px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Tabs ── */
+.vy-tabs .nav-tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.vy-tabs .nav-tabs .tab {
+  margin: 0;
+}
+
+.vy-tabs .nav-tabs .tab button {
+  display: inline-block;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-family: var(--font-body, sans-serif);
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.vy-tabs .nav-tabs .tab button:hover {
+  color: #58c21c;
+}
+.vy-tabs .nav-tabs .tab.is-active button {
+  color: #333;
+  border-bottom-color: #58c21c;
+}
+
+.vy-tabs .tab-panels .panel {
+  display: none;
+}
+.vy-tabs .tab-panels .panel.is-active {
+  display: block;
+}
+
+/* ── Sidebar list ── */
+.apk-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+
+/* Item: row layout, no card shadow */
+.apk-sidebar-list .apk-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 9px 0;
+  margin-bottom: 0 !important;
+  transition: background 0.15s ease;
+}
+
+.apk-sidebar-list .apk-item:last-child {
+  border-bottom: none;
+}
+
+.apk-sidebar-list .apk-item:hover {
+  background: #fafafa !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Thumbnail */
+.apk-sidebar-list .apk-thumbnail {
+  width: 72px !important;
+  height: 72px !important;
+  min-width: 72px !important;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.apk-sidebar-list .apk-thumbnail a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.apk-sidebar-list .apk-thumbnail img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.apk-sidebar-list .apk-item:hover .apk-thumbnail img {
+  transform: scale(1.06);
+}
+
+/* Info */
+.apk-sidebar-list .apk-info {
+  padding: 0 0 0 10px !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+
+.apk-sidebar-list .apk-info h3 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin: 0 0 2px !important;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.apk-sidebar-list .apk-info h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.apk-sidebar-list .apk-info h3 a:hover {
+  color: #58c21c;
+}
+
+.apk-sidebar-list .apk-category {
+  font-size: 11px !important;
+  color: #58c21c !important;
+  margin: 0 0 3px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.apk-sidebar-list .apk-category a {
+  color: #58c21c !important;
+  text-decoration: none;
+}
+.apk-sidebar-list .apk-category a:hover {
+  text-decoration: underline;
+}
+
+/* Star rating: number + icon */
+.apk-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f5a623;
+  line-height: 1;
+}
+
+.apk-stars img {
+  width: 13px;
+  height: 13px;
+  display: block;
+  filter: sepia(1) saturate(4) hue-rotate(10deg);
+}
+
+/* ============================================================
+   TABS — Archive.js compatibility
+   ============================================================ */
+
+/* ============================================================
+   RESPONSIVE — Tablet ≤ 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .vy-single-page {
+    padding: 20px 0 36px;
+  }
+
+  .vy-single-row {
+    flex-direction: column;
+  }
+
+  .vy-single-main-col,
+  .vy-single-sidebar-col {
+    flex: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .vy-single-sidebar-col {
+    margin-top: 24px;
+  }
+
+  /* Post header */
+  .post-thumbnail {
+    width: 80px;
+    height: 80px;
+  }
+  .post-title {
+    font-size: 16px;
+  }
+  .post-meta {
+    font-size: 12px;
+    gap: 6px 10px;
+  }
+
+  /* Info table */
+  .post-info-table td {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  /* Download btn */
+  .single-download-btn {
+    font-size: 14px;
+    padding: 12px 28px;
+  }
+
+  /* Slider: 2 cols on tablet */
+  .single-slider-title {
+    font-size: 13px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile ≤ 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+  /* Post header: stack */
+  .post-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .post-thumbnail {
+    width: 88px;
+    height: 88px;
+  }
+  .post-meta {
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  /* Info table */
+  .post-info-table td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .post-info-table td.label {
+    width: 46%;
+  }
+
+  /* Content */
+  .post-content-wrapper {
+    padding: 14px;
+  }
+  .post-content h2 {
+    font-size: 15px;
+  }
+
+  /* Download btn */
+  .single-download-btn {
+    font-size: 13px;
+    padding: 12px 20px;
+  }
+
+  /* Author */
+  .author-card {
+    padding: 14px;
+  }
+  .author-avatar {
+    width: 52px;
+    height: 52px;
+  }
+  .author-avatar img {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  .author-name {
+    font-size: 14px;
+  }
+
+  .vy-apk-slider__btn {
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+  }
+
+  .apk-sidebar-list .apk-thumbnail {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+  }
+
+  .apk-slide-item .apk-thumbnail {
+    width: 75px !important;
+    min-width: 75px !important;
+    height: 75px !important;
+  }
+}
