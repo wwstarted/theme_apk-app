@@ -2,7 +2,6 @@
 /**
  * VOYA - functions.php
  * Core logic cho dự án APK WordPress
- * Cấu trúc: Setup -> Assets -> Customizer -> Helpers
  */
 
 if (!defined('ABSPATH'))
@@ -52,6 +51,7 @@ require_once get_template_directory() . '/inc/header-setup.php';
 require_once get_template_directory() . '/inc/footer-setup.php';
 require_once get_template_directory() . '/inc/woocommerce-setup.php';
 require_once get_template_directory() . '/inc/home-options.php';
+require_once get_template_directory() . '/inc/search-api.php';
 
 
 // ============================================================
@@ -69,6 +69,21 @@ function vy_enqueue_scripts()
     // 2. Header Assets (Load mọi trang)
     wp_enqueue_style('vy-header-style', $theme_uri . '/css/header.css', [], $ver);
     wp_enqueue_script('vy-header-script', $theme_uri . '/js/header.js', [], $ver, true);
+
+    wp_enqueue_script(
+        'vy-header-search',
+        $theme_uri . '/js/header-search.js',
+        ['jquery'],
+        $ver,
+        true
+    );
+
+    // Truyền config xuống JS
+    wp_localize_script('vy-header-search', 'vySearchConfig', [
+        'restUrl' => esc_url_raw(rest_url('voya/v1/')),
+        'nonce' => wp_create_nonce('wp_rest'),
+        'searchUrl' => home_url('/'),
+    ]);
 
     // 3. Footer Assets (Load mọi trang)
     wp_enqueue_style('vy-footer-style', $theme_uri . '/css/footer.css', [], $ver);
@@ -88,12 +103,10 @@ function vy_enqueue_scripts()
         wp_enqueue_script('vy-home-script', $theme_uri . '/js/home.js', [], $ver, true);
     }
 
-    // 6. WooCommerce Products Grid Assets
     if (is_front_page() || is_page_template('template-shop.php') || $is_product_archive) {
         wp_enqueue_style('vy-woocommerce-products', $theme_uri . '/css/woocommerce-products.css', [], $ver);
     }
 
-    // 7. Archive pages (posts + Woo product archives)
     if (is_archive() || is_home() || $is_product_archive) {
         wp_enqueue_style('vy-archive-style', $theme_uri . '/css/archive.css', [], $ver);
         wp_enqueue_script('vy-archive-script', $theme_uri . '/js/archive.js', [], $ver, true);
@@ -124,6 +137,11 @@ function vy_enqueue_scripts()
     if (is_page_template('page-cms.php')) {
         wp_enqueue_style('vy-cms-page', $theme_uri . '/css/cms-page.css', [], $ver);
     }
+
+    if (is_search()) {
+        wp_enqueue_style('vy-search-page', $theme_uri . '/css/search.css', [], $ver);
+        wp_enqueue_script('vy-archive-js', $theme_uri . '/js/archive.js', ['jquery'], $ver, true);
+    }
 }
 add_action('wp_enqueue_scripts', 'vy_enqueue_scripts');
 
@@ -153,6 +171,7 @@ function vy_set_product_archive_posts_per_page($query)
     }
 }
 add_action('pre_get_posts', 'vy_set_product_archive_posts_per_page');
+
 
 /**
  * Pretty URLs for Woo product categories:
@@ -191,12 +210,6 @@ function vy_archive_canonical_redirect()
 }
 add_action('template_redirect', 'vy_archive_canonical_redirect');
 
-// NOTE:
-// Keep default Woo term_link behavior for stability/performance.
-// Custom pretty routing for /game and /app is handled by rewrite rules above.
-
-
-// Remove WooCommerce default wrappers (dùng template riêng)
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);

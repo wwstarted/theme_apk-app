@@ -1,12 +1,6 @@
 /* ============================================================
    VOYA — single.css (v2.1 — Responsive patch: sidebar tràn fix)
 
-   Layout mới:
-   - Banner ngắn (~460px) + breadcrumb center
-   - 2-col: mcol LEFT (overlap banner) | sidebar RIGHT (sticky)
-   - Bỏ hero full-viewport
-   - Giữ: TOC, reading progress, lightbox, share, author box, comments
-
    Contents:
    01. Banner
    02. Body + Layout

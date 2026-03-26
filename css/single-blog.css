@@ -1222,3 +1222,34 @@
     display: none;
   }
 }
+
+/* Override: link "Xem tất cả bài viết" — không phải icon tròn */
+.vy-single-blog__author-all {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: var(--blog-muted) !important;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  transition: color 0.15s ease !important;
+}
+
+.vy-single-blog__author-all:hover {
+  background: none !important;
+  border-color: transparent !important;
+  color: var(--blog-green) !important;
+}
+
+.vy-single-blog__author-all i {
+  font-size: 10px;
+}

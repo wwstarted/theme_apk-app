@@ -6,9 +6,6 @@
     const menuToggle = document.getElementById("vy-menu-toggle");
     const overlay = document.getElementById("vy-overlay");
     const mobileMenu = document.getElementById("main-menu");
-    const searchToggleMobile = document.getElementById(
-      "vy-search-toggle-mobile",
-    );
 
     // 1. Mở/Đóng Mobile Menu (Sidebar - click hamburger icon)
     if (menuToggle && overlay && mobileMenu) {
@@ -40,30 +37,6 @@
             menuToggle.setAttribute("aria-expanded", "false");
           }
         });
-      });
-    }
-
-    // 2. Mobile Search Icon (toggle search form visibility)
-    if (searchToggleMobile) {
-      searchToggleMobile.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        // Open mobile menu if not already open
-        if (!body.classList.contains("mobile-menu-open")) {
-          body.classList.add("mobile-menu-open");
-          if (menuToggle) {
-            menuToggle.setAttribute("aria-expanded", "true");
-          }
-        }
-        // Focus search form in mobile menu
-        setTimeout(function () {
-          const mobileSearch = mobileMenu
-            ? mobileMenu.querySelector(".header-search-form input")
-            : null;
-          if (mobileSearch) {
-            mobileSearch.focus();
-          }
-        }, 100);
       });
     }
 

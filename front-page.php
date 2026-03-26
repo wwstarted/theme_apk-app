@@ -14,6 +14,19 @@ get_header();
 
 <main id="vy-main" class="vy-main-content">
 
+    <!-- SECTION BANNER -->
+    <section class="section vy-banner-section" id="section_banner">
+        <div class="section-bg fill"></div>
+        <div class="section-content relative">
+            <div class="vy-banner-inner">
+                <h1 class="vy-banner-title">
+                    <?php esc_html_e('Trang Tải Game Mod, App, Apk Miễn Phí, Uy Tín', 'voya'); ?>
+                    <span class="vy-banner-emoji" aria-hidden="true">🎮 📱 ⚡</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
     <!-- ============================================================
          SECTION 1 – GAMES (New/Latest)
     ============================================================ -->
@@ -54,47 +67,47 @@ get_header();
                                                 $full_stars = (int) $rating;
                                                 $terms = get_the_terms(get_the_ID(), 'product_cat');
                                                 ?>
-                                                <div class="apk-item">
-                                                    <div class="apk-thumbnail">
-                                                        <?php
+                                        <div class="apk-item">
+                                            <div class="apk-thumbnail">
+                                                <?php
                                                         if (has_post_thumbnail()) {
                                                             the_post_thumbnail('thumbnail', array('alt' => get_the_title()));
                                                         } else {
                                                             echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr(get_the_title()) . '">';
                                                         }
                                                         ?>
-                                                    </div>
-                                                    <div class="apk-info">
-                                                        <h3>
-                                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                                        </h3>
-                                                        <?php if ($terms && !is_wp_error($terms)): ?>
-                                                            <p class="apk-category">
-                                                                <?php
+                                            </div>
+                                            <div class="apk-info">
+                                                <h3>
+                                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                                </h3>
+                                                <?php if ($terms && !is_wp_error($terms)): ?>
+                                                <p class="apk-category">
+                                                    <?php
                                                                 foreach (array_slice($terms, 0, 2) as $term) {
                                                                     echo '<a href="' . esc_url(get_term_link($term)) . '" rel="tag">' . esc_html($term->name) . '</a>';
                                                                 }
                                                                 ?>
-                                                            </p>
-                                                        <?php endif; ?>
-                                                        <div class="box-bottom">
-                                                            <div class="rating" data-stars="<?php echo esc_attr($rating); ?>">
-                                                                <?php for ($i = 0; $i < 5; $i++): ?>
-                                                                    <img src="<?php echo esc_url(get_theme_file_uri($i < $full_stars ? '/images/star-full.png' : '/images/star-empty.png')); ?>"
-                                                                        alt="star">
-                                                                <?php endfor; ?>
-                                                            </div>
-                                                            <?php if ($download_url): ?>
-                                                                <a class="apk-download-btn"
-                                                                    href="<?php echo esc_url($download_url); ?>" target="_blank"
-                                                                    rel="noopener">
-                                                                    <?php esc_html_e('Tải xuống', 'voya'); ?>
-                                                                </a>
-                                                            <?php endif; ?>
-                                                        </div>
+                                                </p>
+                                                <?php endif; ?>
+                                                <div class="box-bottom">
+                                                    <div class="rating" data-stars="<?php echo esc_attr($rating); ?>">
+                                                        <?php for ($i = 0; $i < 5; $i++): ?>
+                                                        <img src="<?php echo esc_url(get_theme_file_uri($i < $full_stars ? '/images/star-full.png' : '/images/star-empty.png')); ?>"
+                                                            alt="star">
+                                                        <?php endfor; ?>
                                                     </div>
+                                                    <?php if ($download_url): ?>
+                                                    <a class="apk-download-btn"
+                                                        href="<?php echo esc_url($download_url); ?>" target="_blank"
+                                                        rel="noopener">
+                                                        <?php esc_html_e('Tải xuống', 'voya'); ?>
+                                                    </a>
+                                                    <?php endif; ?>
                                                 </div>
-                                                <?php
+                                            </div>
+                                        </div>
+                                        <?php
                                             endwhile;
                                             wp_reset_postdata();
                                         endif;
@@ -108,21 +121,21 @@ get_header();
             </div>
         </div>
         <style>
+        #section_869393426 {
+            padding: 30px 0;
+        }
+
+        @media (max-width: 768px) {
             #section_869393426 {
-                padding: 30px 0;
+                padding: 25px 0;
             }
+        }
 
-            @media (max-width: 768px) {
-                #section_869393426 {
-                    padding: 25px 0;
-                }
+        @media (max-width: 480px) {
+            #section_869393426 {
+                padding: 20px 0;
             }
-
-            @media (max-width: 480px) {
-                #section_869393426 {
-                    padding: 20px 0;
-                }
-            }
+        }
         </style>
     </section>
 
@@ -167,47 +180,47 @@ get_header();
                                                 $full_stars = (int) $rating;
                                                 $terms = get_the_terms(get_the_ID(), 'product_cat');
                                                 ?>
-                                                <div class="apk-item">
-                                                    <div class="apk-thumbnail">
-                                                        <?php
+                                        <div class="apk-item">
+                                            <div class="apk-thumbnail">
+                                                <?php
                                                         if (has_post_thumbnail()) {
                                                             the_post_thumbnail('thumbnail', array('alt' => get_the_title()));
                                                         } else {
                                                             echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr(get_the_title()) . '">';
                                                         }
                                                         ?>
-                                                    </div>
-                                                    <div class="apk-info">
-                                                        <h3>
-                                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                                        </h3>
-                                                        <?php if ($terms && !is_wp_error($terms)): ?>
-                                                            <p class="apk-category">
-                                                                <?php
+                                            </div>
+                                            <div class="apk-info">
+                                                <h3>
+                                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                                </h3>
+                                                <?php if ($terms && !is_wp_error($terms)): ?>
+                                                <p class="apk-category">
+                                                    <?php
                                                                 foreach (array_slice($terms, 0, 2) as $term) {
                                                                     echo '<a href="' . esc_url(get_term_link($term)) . '" rel="tag">' . esc_html($term->name) . '</a>';
                                                                 }
                                                                 ?>
-                                                            </p>
-                                                        <?php endif; ?>
-                                                        <div class="box-bottom">
-                                                            <div class="rating" data-stars="<?php echo esc_attr($rating); ?>">
-                                                                <?php for ($i = 0; $i < 5; $i++): ?>
-                                                                    <img src="<?php echo esc_url(get_theme_file_uri($i < $full_stars ? '/images/star-full.png' : '/images/star-empty.png')); ?>"
-                                                                        alt="star">
-                                                                <?php endfor; ?>
-                                                            </div>
-                                                            <?php if ($download_url): ?>
-                                                                <a class="apk-download-btn"
-                                                                    href="<?php echo esc_url($download_url); ?>" target="_blank"
-                                                                    rel="noopener">
-                                                                    <?php esc_html_e('Tải xuống', 'voya'); ?>
-                                                                </a>
-                                                            <?php endif; ?>
-                                                        </div>
+                                                </p>
+                                                <?php endif; ?>
+                                                <div class="box-bottom">
+                                                    <div class="rating" data-stars="<?php echo esc_attr($rating); ?>">
+                                                        <?php for ($i = 0; $i < 5; $i++): ?>
+                                                        <img src="<?php echo esc_url(get_theme_file_uri($i < $full_stars ? '/images/star-full.png' : '/images/star-empty.png')); ?>"
+                                                            alt="star">
+                                                        <?php endfor; ?>
                                                     </div>
+                                                    <?php if ($download_url): ?>
+                                                    <a class="apk-download-btn"
+                                                        href="<?php echo esc_url($download_url); ?>" target="_blank"
+                                                        rel="noopener">
+                                                        <?php esc_html_e('Tải xuống', 'voya'); ?>
+                                                    </a>
+                                                    <?php endif; ?>
                                                 </div>
-                                                <?php
+                                            </div>
+                                        </div>
+                                        <?php
                                             endwhile;
                                             wp_reset_postdata();
                                         endif;
@@ -221,21 +234,21 @@ get_header();
             </div>
         </div>
         <style>
+        #section_1243651119 {
+            padding: 30px 0;
+        }
+
+        @media (max-width: 768px) {
             #section_1243651119 {
-                padding: 30px 0;
+                padding: 25px 0;
             }
+        }
 
-            @media (max-width: 768px) {
-                #section_1243651119 {
-                    padding: 25px 0;
-                }
+        @media (max-width: 480px) {
+            #section_1243651119 {
+                padding: 20px 0;
             }
-
-            @media (max-width: 480px) {
-                #section_1243651119 {
-                    padding: 20px 0;
-                }
-            }
+        }
         </style>
     </section>
 
@@ -264,13 +277,13 @@ get_header();
                                     ?>
 
                                     <?php if ($game_cats && !is_wp_error($game_cats)): ?>
-                                        <div class="term-list">
-                                            <?php foreach ($game_cats as $cat): ?>
-                                                <a href="<?php echo esc_url(get_term_link($cat)); ?>" class="term-item">
-                                                    <?php echo esc_html($cat->name); ?>
-                                                </a>
-                                            <?php endforeach; ?>
-                                        </div>
+                                    <div class="term-list">
+                                        <?php foreach ($game_cats as $cat): ?>
+                                        <a href="<?php echo esc_url(get_term_link($cat)); ?>" class="term-item">
+                                            <?php echo esc_html($cat->name); ?>
+                                        </a>
+                                        <?php endforeach; ?>
+                                    </div>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -280,21 +293,21 @@ get_header();
             </div>
         </div>
         <style>
+        #section_categories {
+            padding: 30px 0;
+        }
+
+        @media (max-width: 768px) {
             #section_categories {
-                padding: 30px 0;
+                padding: 25px 0;
             }
+        }
 
-            @media (max-width: 768px) {
-                #section_categories {
-                    padding: 25px 0;
-                }
+        @media (max-width: 480px) {
+            #section_categories {
+                padding: 20px 0;
             }
-
-            @media (max-width: 480px) {
-                #section_categories {
-                    padding: 20px 0;
-                }
-            }
+        }
         </style>
     </section>
 
@@ -341,17 +354,17 @@ get_header();
     ?>
 
     <?php if ($news_query->have_posts()): ?>
-        <section class="vy-home-news">
-            <div class="vy-home-container">
+    <section class="vy-home-news">
+        <div class="vy-home-container">
 
-                <div class="vy-home-news__header">
-                    <h2 class="apk-section-title vy-home-news__title">
-                        <?php echo esc_html($news_title); ?>
-                    </h2>
-                </div>
+            <div class="vy-home-news__header">
+                <h2 class="apk-section-title vy-home-news__title">
+                    <?php echo esc_html($news_title); ?>
+                </h2>
+            </div>
 
-                <div class="vy-home-news__grid">
-                    <?php while ($news_query->have_posts()):
+            <div class="vy-home-news__grid">
+                <?php while ($news_query->have_posts()):
                         $news_query->the_post();
                         $n_id = get_the_ID();
                         $n_img = get_the_post_thumbnail_url($n_id, 'large') ?: get_the_post_thumbnail_url($n_id, 'full');
@@ -360,52 +373,52 @@ get_header();
                         $n_excerpt = get_post_field('post_excerpt', $n_id)
                             ?: wp_trim_words(strip_tags(get_post_field('post_content', $n_id)), 18, '…');
                         ?>
-                        <article class="vy-news-card">
+                <article class="vy-news-card">
 
-                            <a href="<?php the_permalink(); ?>" class="vy-news-card__img-link">
-                                <div class="vy-news-card__img-wrap">
-                                    <?php if ($n_img): ?>
-                                        <img src="<?php echo esc_url($n_img); ?>" alt="<?php the_title_attribute(); ?>"
-                                            loading="lazy" class="vy-news-card__img">
-                                    <?php else: ?>
-                                        <div class="vy-news-card__img-placeholder">
-                                            <i class="fa-regular fa-newspaper"></i>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($n_cats)): ?>
-                                        <span class="vy-news-card__cat">
-                                            <?php echo esc_html($n_cats[0]->name); ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            </a>
-
-                            <div class="vy-news-card__body">
-                                <div class="vy-news-card__date">
-                                    <i class="fa-regular fa-calendar-days"></i>
-                                    <?php echo esc_html($n_date); ?>
-                                </div>
-                                <h3 class="vy-news-card__title">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h3>
-                                <p class="vy-news-card__excerpt">
-                                    <?php echo esc_html(wp_trim_words($n_excerpt, 18, '…')); ?>
-                                </p>
+                    <a href="<?php the_permalink(); ?>" class="vy-news-card__img-link">
+                        <div class="vy-news-card__img-wrap">
+                            <?php if ($n_img): ?>
+                            <img src="<?php echo esc_url($n_img); ?>" alt="<?php the_title_attribute(); ?>"
+                                loading="lazy" class="vy-news-card__img">
+                            <?php else: ?>
+                            <div class="vy-news-card__img-placeholder">
+                                <i class="fa-regular fa-newspaper"></i>
                             </div>
-
-                        </article>
-                    <?php endwhile;
-                    wp_reset_postdata(); ?>
-                </div><!-- /.vy-home-news__grid -->
-
-                <div class="apk-view-more">
-                    <a href="<?php echo esc_url($news_view_more); ?>" class="btn">
-                        <?php esc_html_e('Xem tất cả bài viết', 'voya'); ?>
+                            <?php endif; ?>
+                            <?php if (!empty($n_cats)): ?>
+                            <span class="vy-news-card__cat">
+                                <?php echo esc_html($n_cats[0]->name); ?>
+                            </span>
+                            <?php endif; ?>
+                        </div>
                     </a>
-                </div>
 
+                    <div class="vy-news-card__body">
+                        <div class="vy-news-card__date">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <?php echo esc_html($n_date); ?>
+                        </div>
+                        <h3 class="vy-news-card__title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h3>
+                        <p class="vy-news-card__excerpt">
+                            <?php echo esc_html(wp_trim_words($n_excerpt, 18, '…')); ?>
+                        </p>
+                    </div>
+
+                </article>
+                <?php endwhile;
+                    wp_reset_postdata(); ?>
+            </div><!-- /.vy-home-news__grid -->
+
+            <div class="apk-view-more">
+                <a href="<?php echo esc_url($news_view_more); ?>" class="btn">
+                    <?php esc_html_e('Xem tất cả bài viết', 'voya'); ?>
+                </a>
             </div>
-        </section>
+
+        </div>
+    </section>
     <?php endif; ?>
 
 

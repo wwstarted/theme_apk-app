@@ -613,3 +613,80 @@
     transition: none;
   }
 }
+
+/* ============================================================
+   SECTION BANNER — Green gradient headline
+   ============================================================ */
+
+.vy-banner-section {
+  padding: 30px 0;
+}
+
+.vy-banner-inner {
+  max-width: var(--vy-container-w, 1230px);
+  margin: 0 auto;
+  padding: 0 var(--vy-page-pad, 20px);
+}
+
+.vy-banner-title {
+  font-family: var(--font-body, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(90deg, #58c21c 0%, #a2d43c 100%);
+  padding: 18px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(88, 194, 28, 0.25);
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+}
+
+.vy-banner-emoji {
+  display: inline;
+  margin-left: 6px;
+  font-style: normal;
+  letter-spacing: 0.05em;
+}
+
+/* ── Tablet ≤ 768px ── */
+@media (max-width: 768px) {
+  .vy-banner-section {
+    padding: 24px 0;
+  }
+
+  .vy-banner-title {
+    font-size: 1.15rem;
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
+}
+
+/* ── Mobile ≤ 480px ── */
+@media (max-width: 480px) {
+  .vy-banner-section {
+    padding: 20px 0;
+  }
+
+  .vy-banner-title {
+    font-size: 0.9rem;
+    padding: 13px 14px;
+    border-radius: 8px;
+    letter-spacing: 0;
+  }
+
+  .vy-banner-emoji {
+    display: block;
+    margin: 4px 0 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .vy-banner-title {
+    box-shadow: none;
+  }
+}
