@@ -59,14 +59,15 @@ $sidebar_pop_query = new WP_Query([
 
         <!-- Search Header -->
         <div class="vy-search-header">
-            <div class="vy-search-header__query">
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <h1 class="vy-search-header__query">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                 <?php if ($search_query): ?>
-                    Kết quả tìm kiếm: <strong>"<?php echo esc_html($search_query); ?>"</strong>
+                    <?php esc_html_e('Kết quả tìm kiếm:', 'voya'); ?>
+                    <strong>"<?php echo esc_html($search_query); ?>"</strong>
                 <?php else: ?>
-                    Tất cả kết quả
+                    <?php esc_html_e('Tất cả kết quả', 'voya'); ?>
                 <?php endif; ?>
-            </div>
+            </h1>
             <?php if ($total_count > 0): ?>
                 <div class="vy-search-header__count">
                     <?php echo number_format($total_count); ?> kết quả
@@ -153,7 +154,8 @@ $sidebar_pop_query = new WP_Query([
                                                     <div class="box-bottom">
                                                         <?php echo vy_get_product_star_rating($pid); ?>
                                                         <?php if ($download_url):
-                                                            echo vy_get_product_download_button($pid); endif; ?>
+                                                            echo vy_get_product_download_button($pid);
+                                                        endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -315,7 +317,8 @@ $sidebar_pop_query = new WP_Query([
                                                     </div>
                                                 </div>
                                             <?php endwhile;
-                                            wp_reset_postdata(); endif; ?>
+                                            wp_reset_postdata();
+                                        endif; ?>
                                     </div>
                                 </div>
 
@@ -359,7 +362,8 @@ $sidebar_pop_query = new WP_Query([
                                                     </div>
                                                 </div>
                                             <?php endwhile;
-                                            wp_reset_postdata(); endif; ?>
+                                            wp_reset_postdata();
+                                        endif; ?>
                                     </div>
                                 </div>
 

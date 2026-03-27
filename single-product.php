@@ -18,42 +18,42 @@ if (!function_exists('vy_single_sidebar_card')) {
         $rating = min(5, max(0, (float) get_post_meta($product_id, '_vy_product_rating', true)));
         $display = $rating > 0 ? number_format($rating, 1) : '0';
         ?>
-<div class="apk-item">
-    <div class="apk-thumbnail">
-        <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-            <?php
-                            if (has_post_thumbnail($product_id)) {
-                                echo get_the_post_thumbnail($product_id, 'thumbnail', ['alt' => get_the_title($product_id), 'loading' => 'lazy']);
-                            } else {
-                                echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr(get_the_title($product_id)) . '" loading="lazy">';
-                            }
-                            ?>
-        </a>
-    </div>
-    <div class="apk-info">
-        <h3>
-            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                <?php echo esc_html(get_the_title($product_id)); ?>
-            </a>
-        </h3>
-        <?php if ($terms && !is_wp_error($terms)): ?>
-        <p class="apk-category">
-            <?php
-                                    $chunks = [];
-                                    foreach (array_slice($terms, 0, 2) as $term) {
-                                        $chunks[] = '<a href="' . esc_url(get_term_link($term)) . '" rel="tag">' . esc_html($term->name) . '</a>';
-                                    }
-                                    echo wp_kses_post(implode(', ', $chunks));
-                                    ?>
-        </p>
-        <?php endif; ?>
-        <div class="apk-stars">
-            <?php echo esc_html($display); ?>
-            <img src="<?php echo esc_url(get_theme_file_uri('/images/star-full.png')); ?>" alt="star">
+        <div class="apk-item">
+            <div class="apk-thumbnail">
+                <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                    <?php
+                    if (has_post_thumbnail($product_id)) {
+                        echo get_the_post_thumbnail($product_id, 'thumbnail', ['alt' => get_the_title($product_id), 'loading' => 'lazy']);
+                    } else {
+                        echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr(get_the_title($product_id)) . '" loading="lazy">';
+                    }
+                    ?>
+                </a>
+            </div>
+            <div class="apk-info">
+                <h3>
+                    <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                        <?php echo esc_html(get_the_title($product_id)); ?>
+                    </a>
+                </h3>
+                <?php if ($terms && !is_wp_error($terms)): ?>
+                    <p class="apk-category">
+                        <?php
+                        $chunks = [];
+                        foreach (array_slice($terms, 0, 2) as $term) {
+                            $chunks[] = '<a href="' . esc_url(get_term_link($term)) . '" rel="tag">' . esc_html($term->name) . '</a>';
+                        }
+                        echo wp_kses_post(implode(', ', $chunks));
+                        ?>
+                    </p>
+                <?php endif; ?>
+                <div class="apk-stars">
+                    <?php echo esc_html($display); ?>
+                    <img src="<?php echo esc_url(get_theme_file_uri('/images/star-full.png')); ?>" alt="star">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<?php
+        <?php
     }
 }
 
@@ -69,50 +69,49 @@ if (!function_exists('vy_single_slider_card')) {
         $rating = min(5, max(0, floatval(get_post_meta($product_id, '_vy_product_rating', true) ?: 0)));
         $full_stars = (int) $rating;
         ?>
-<div class="apk-item apk-slide-item">
-    <div class="apk-thumbnail">
-        <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-            <?php
-                            if (has_post_thumbnail($product_id)) {
-                                echo get_the_post_thumbnail($product_id, 'thumbnail', ['alt' => get_the_title($product_id), 'loading' => 'lazy']);
-                            } else {
-                                echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr(get_the_title($product_id)) . '" loading="lazy">';
-                            }
-                            ?>
-        </a>
-    </div>
-    <div class="apk-info">
-        <h3>
-            <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
-                <?php echo esc_html(get_the_title($product_id)); ?>
-            </a>
-        </h3>
-        <?php if ($terms && !is_wp_error($terms)): ?>
-        <p class="apk-category">
-            <?php
-                                    $chunks = [];
-                                    foreach (array_slice($terms, 0, 2) as $t) {
-                                        $chunks[] = '<a href="' . esc_url(get_term_link($t)) . '" rel="tag">' . esc_html($t->name) . '</a>';
-                                    }
-                                    echo wp_kses_post(implode(', ', $chunks));
-                                    ?>
-        </p>
-        <?php endif; ?>
-        <div class="box-bottom">
-            <div class="rating" data-stars="<?php echo esc_attr($rating); ?>">
-                <?php for ($i = 0; $i < 5; $i++):
-                                    $icon = $i < $full_stars ? 'star-full.png' : 'star-empty.png'; ?>
-                <img src="<?php echo esc_url(get_theme_file_uri('/images/' . $icon)); ?>" alt="star">
-                <?php endfor; ?>
+        <div class="apk-item apk-slide-item">
+            <div class="apk-thumbnail">
+                <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                    <?php
+                    if (has_post_thumbnail($product_id)) {
+                        echo get_the_post_thumbnail($product_id, 'thumbnail', ['alt' => get_the_title($product_id), 'loading' => 'lazy']);
+                    } else {
+                        echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr(get_the_title($product_id)) . '" loading="lazy">';
+                    }
+                    ?>
+                </a>
             </div>
-            <a class="apk-download-btn" href="<?php echo esc_url($button_url); ?>"
-                <?php echo $download_url ? 'target="_blank" rel="noopener"' : ''; ?>>
-                <?php esc_html_e('Tải xuống', 'voya'); ?>
-            </a>
+            <div class="apk-info">
+                <h3>
+                    <a href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                        <?php echo esc_html(get_the_title($product_id)); ?>
+                    </a>
+                </h3>
+                <?php if ($terms && !is_wp_error($terms)): ?>
+                    <p class="apk-category">
+                        <?php
+                        $chunks = [];
+                        foreach (array_slice($terms, 0, 2) as $t) {
+                            $chunks[] = '<a href="' . esc_url(get_term_link($t)) . '" rel="tag">' . esc_html($t->name) . '</a>';
+                        }
+                        echo wp_kses_post(implode(', ', $chunks));
+                        ?>
+                    </p>
+                <?php endif; ?>
+                <div class="box-bottom">
+                    <div class="rating" data-stars="<?php echo esc_attr($rating); ?>">
+                        <?php for ($i = 0; $i < 5; $i++):
+                            $icon = $i < $full_stars ? 'star-full.png' : 'star-empty.png'; ?>
+                            <img src="<?php echo esc_url(get_theme_file_uri('/images/' . $icon)); ?>" alt="star">
+                        <?php endfor; ?>
+                    </div>
+                    <a class="apk-download-btn" href="<?php echo esc_url($button_url); ?>" <?php echo $download_url ? 'target="_blank" rel="noopener"' : ''; ?>>
+                        <?php esc_html_e('Tải xuống', 'voya'); ?>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<?php
+        <?php
     }
 }
 
@@ -129,30 +128,31 @@ if (!function_exists('vy_render_single_slider')) {
         wp_reset_postdata();
         $columns = array_chunk($posts, 2); // 2 items per column
         ?>
-<div class="single-slider-section">
-    <h3 class="single-slider-title"><?php echo esc_html($title); ?></h3>
-    <div class="vy-apk-slider">
-        <!-- Viewport clips overflow -->
-        <div class="vy-apk-slider__viewport">
-            <!-- Track slides horizontally -->
-            <div class="vy-apk-slider__track">
-                <?php foreach ($columns as $col): ?>
-                <div class="vy-apk-slider__col">
-                    <?php foreach ($col as $post):
-                                                vy_single_slider_card($post->ID); endforeach; ?>
+        <div class="single-slider-section">
+            <h4 class="single-slider-title"><?php echo esc_html($title); ?></h4>
+            <div class="vy-apk-slider">
+                <!-- Viewport clips overflow -->
+                <div class="vy-apk-slider__viewport">
+                    <!-- Track slides horizontally -->
+                    <div class="vy-apk-slider__track">
+                        <?php foreach ($columns as $col): ?>
+                            <div class="vy-apk-slider__col">
+                                <?php foreach ($col as $post):
+                                    vy_single_slider_card($post->ID);
+                                endforeach; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-                <?php endforeach; ?>
+                <button class="vy-apk-slider__btn vy-apk-slider__btn--prev" aria-label="<?php esc_attr_e('Trước', 'voya'); ?>">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="vy-apk-slider__btn vy-apk-slider__btn--next" aria-label="<?php esc_attr_e('Tiếp', 'voya'); ?>">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
         </div>
-        <button class="vy-apk-slider__btn vy-apk-slider__btn--prev" aria-label="<?php esc_attr_e('Trước', 'voya'); ?>">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="vy-apk-slider__btn vy-apk-slider__btn--next" aria-label="<?php esc_attr_e('Tiếp', 'voya'); ?>">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-</div>
-<?php
+        <?php
     }
 }
 
@@ -268,22 +268,22 @@ get_header();
                             <h1 class="post-title"><?php the_title(); ?></h1>
                             <div class="post-meta">
                                 <?php if ($download_count): ?>
-                                <span><i
-                                        class="fa-solid fa-download"></i><?php echo esc_html(number_format((int) $download_count)); ?></span>
+                                    <span><i
+                                            class="fa-solid fa-download"></i><?php echo esc_html(number_format((int) $download_count)); ?></span>
                                 <?php endif; ?>
                                 <span><i
                                         class="fa-solid fa-star"></i><?php echo esc_html($rating > 0 ? number_format($rating, 1) : '0'); ?></span>
                                 <span><i
                                         class="fa-regular fa-calendar"></i><?php echo esc_html(get_the_date('d/m/Y')); ?></span>
                                 <?php if ($terms && !is_wp_error($terms)): ?>
-                                <span><i class="fa-solid fa-tag"></i>
-                                    <?php
+                                    <span><i class="fa-solid fa-tag"></i>
+                                        <?php
                                         $tl = [];
                                         foreach ($terms as $term)
                                             $tl[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
                                         echo wp_kses_post(implode(', ', $tl));
                                         ?>
-                                </span>
+                                    </span>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -301,47 +301,53 @@ get_header();
                                     <td class="label"><?php esc_html_e('Ngày tạo', 'voya'); ?></td>
                                     <td><?php echo esc_html(get_the_date('d/m/Y')); ?></td>
                                 </tr>
-                                <?php if ($file_size): ?><tr>
-                                    <td class="label"><?php esc_html_e('Dung lượng', 'voya'); ?></td>
-                                    <td><?php echo esc_html($file_size); ?></td>
-                                </tr><?php endif; ?>
-                                <?php if ($download_count): ?><tr>
-                                    <td class="label"><?php esc_html_e('Lượt tải', 'voya'); ?></td>
-                                    <td><?php echo esc_html(number_format((int) $download_count)); ?></td>
-                                </tr><?php endif; ?>
+                                <?php if ($file_size): ?>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Dung lượng', 'voya'); ?></td>
+                                        <td><?php echo esc_html($file_size); ?></td>
+                                    </tr><?php endif; ?>
+                                <?php if ($download_count): ?>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Lượt tải', 'voya'); ?></td>
+                                        <td><?php echo esc_html(number_format((int) $download_count)); ?></td>
+                                    </tr><?php endif; ?>
                                 <?php if ($terms && !is_wp_error($terms)): ?>
-                                <tr>
-                                    <td class="label"><?php esc_html_e('Danh mục', 'voya'); ?></td>
-                                    <td>
-                                        <div class="apk-cat"><?php
-                                    $cl = [];
-                                    foreach ($terms as $term)
-                                        $cl[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
-                                    echo wp_kses_post(implode(' ', $cl));
-                                    ?></div>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Danh mục', 'voya'); ?></td>
+                                        <td>
+                                            <div class="apk-cat"><?php
+                                            $cl = [];
+                                            foreach ($terms as $term)
+                                                $cl[] = '<a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a>';
+                                            echo wp_kses_post(implode(' ', $cl));
+                                            ?></div>
+                                        </td>
+                                    </tr>
                                 <?php endif; ?>
-                                <?php if ($version): ?><tr>
-                                    <td class="label"><?php esc_html_e('Phiên bản', 'voya'); ?></td>
-                                    <td><?php echo esc_html($version); ?></td>
-                                </tr><?php endif; ?>
-                                <?php if ($os_req): ?><tr>
-                                    <td class="label"><?php esc_html_e('Yêu cầu OS', 'voya'); ?></td>
-                                    <td><?php echo esc_html($os_req); ?></td>
-                                </tr><?php endif; ?>
-                                <?php if ($publisher): ?><tr>
-                                    <td class="label"><?php esc_html_e('Nhà phát hành', 'voya'); ?></td>
-                                    <td><?php echo esc_html($publisher); ?></td>
-                                </tr><?php endif; ?>
+                                <?php if ($version): ?>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Phiên bản', 'voya'); ?></td>
+                                        <td><?php echo esc_html($version); ?></td>
+                                    </tr><?php endif; ?>
+                                <?php if ($os_req): ?>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Yêu cầu OS', 'voya'); ?></td>
+                                        <td><?php echo esc_html($os_req); ?></td>
+                                    </tr><?php endif; ?>
+                                <?php if ($publisher): ?>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Nhà phát hành', 'voya'); ?></td>
+                                        <td><?php echo esc_html($publisher); ?></td>
+                                    </tr><?php endif; ?>
                                 <tr>
                                     <td class="label"><?php esc_html_e('Giấy phép', 'voya'); ?></td>
                                     <td><?php echo esc_html($license); ?></td>
                                 </tr>
-                                <?php if ($package_name): ?><tr>
-                                    <td class="label"><?php esc_html_e('Tên gói', 'voya'); ?></td>
-                                    <td class="pkg-name"><?php echo esc_html($package_name); ?></td>
-                                </tr><?php endif; ?>
+                                <?php if ($package_name): ?>
+                                    <tr>
+                                        <td class="label"><?php esc_html_e('Tên gói', 'voya'); ?></td>
+                                        <td class="pkg-name"><?php echo esc_html($package_name); ?></td>
+                                    </tr><?php endif; ?>
                                 <tr>
                                     <td class="label"><?php esc_html_e('Đánh giá', 'voya'); ?></td>
                                     <td><?php echo esc_html(($rating > 0 ? number_format($rating, 1) : '0') . '/5'); ?>
@@ -366,13 +372,13 @@ get_header();
 
                     <!-- DOWNLOAD CTA -->
                     <?php if ($download_url): ?>
-                    <div class="single-download-wrap">
-                        <a href="<?php echo esc_url($download_url); ?>" class="single-download-btn" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="fa-solid fa-download"></i>
-                            <?php esc_html_e('Tải về ngay', 'voya'); ?>
-                        </a>
-                    </div>
+                        <div class="single-download-wrap">
+                            <a href="<?php echo esc_url($download_url); ?>" class="single-download-btn" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-solid fa-download"></i>
+                                <?php esc_html_e('Tải về ngay', 'voya'); ?>
+                            </a>
+                        </div>
                     <?php endif; ?>
 
                     <!-- AUTHOR CARD -->
@@ -387,14 +393,14 @@ get_header();
                                         href="<?php echo esc_url($author_url); ?>"><?php echo esc_html($author_name); ?></a>
                                 </h2>
                                 <?php if ($author_fb || $author_tw): ?>
-                                <div class="author-social">
-                                    <?php if ($author_fb): ?><a href="<?php echo esc_url($author_fb); ?>"
-                                        target="_blank" rel="noopener" aria-label="Facebook"><i
-                                            class="fa-brands fa-facebook"></i></a><?php endif; ?>
-                                    <?php if ($author_tw): ?><a href="<?php echo esc_url($author_tw); ?>"
-                                        target="_blank" rel="noopener" aria-label="Twitter"><i
-                                            class="fa-brands fa-twitter"></i></a><?php endif; ?>
-                                </div>
+                                    <div class="author-social">
+                                        <?php if ($author_fb): ?><a href="<?php echo esc_url($author_fb); ?>"
+                                                target="_blank" rel="noopener" aria-label="Facebook"><i
+                                                    class="fa-brands fa-facebook"></i></a><?php endif; ?>
+                                        <?php if ($author_tw): ?><a href="<?php echo esc_url($author_tw); ?>"
+                                                target="_blank" rel="noopener" aria-label="Twitter"><i
+                                                    class="fa-brands fa-twitter"></i></a><?php endif; ?>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -405,9 +411,9 @@ get_header();
 
                     <!-- COMMENTS -->
                     <?php if (comments_open() || get_comments_number()): ?>
-                    <div class="single-comments-wrap">
-                        <?php comments_template(); ?>
-                    </div>
+                        <div class="single-comments-wrap">
+                            <?php comments_template(); ?>
+                        </div>
                     <?php endif; ?>
 
                     <!-- SLIDERS -->

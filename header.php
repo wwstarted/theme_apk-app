@@ -146,7 +146,6 @@
                         </div>
                     </li>
 
-                    <!-- Mobile Navigation Menu -->
                     <?php
                     wp_nav_menu([
                         'theme_location' => 'primary',
